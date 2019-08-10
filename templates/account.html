@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <h1> Hey ! </h1>
+  <p>instarepair is a hassle free, web based mechanic booking app , without getting into the hassle of creating account</p>
+  <p>Feel free to post your experience and feedback here</p>
+  <p>We will will post our updates here </p>
+  <div class="jumbotron">
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      {{ form.name.label }} {{ form.name() }}
+      {{ form.email.label }} {{ form.email() }}
+      {{ form.submit() }}
+  </form>
+</div>
+{% endblock %}
