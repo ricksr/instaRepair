@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Are you a Mechanic ?</h1>
+<p>We don't need your information , just click the button below and give you phone number and
+  name to register with us</p>
+  <p>We will fetch you location and some details</p>
+  <div class="jumbotron">
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      {{ form.name.label }} {{ form.name() }}
+      {{ form.email.label }} {{ form.email() }}
+      {{ form.submit() }}
+  </form>
+</div>
+<button onclick="getLocation()">Try It</button>
+
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "Latitude: " + position.coords.latitude +
+  "<br>Longitude: " + position.coords.longitude;
+}
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: {lat: -33, lng: 151}
+  });
+
+  var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
+  var beachMarker = new google.maps.Marker({
+    position: {lat: -33.890, lng: 151.274},
+    map: map,
+    icon: image
+  });
+}
+</script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPmphlwoo7dSfR-l_nt-_lLXB9ZNuJjAM&callback=initMap">
+    </script>
+</body>
+</html>
+
+
+{% endblock %}
