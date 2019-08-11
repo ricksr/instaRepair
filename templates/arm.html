@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+<h5><a href="https://translate.google.com/translate?hl=en&sl=en&tl=hi&u=https%3A%2F%2Finstarepair.herokuapp.com%2Fare_you">HINDI</a></h5>
 <h1>Are you a Mechanic ?</h1>
 <p>We don't need your information , just click the button below and give you phone number and
   name to register with us</p>
@@ -20,8 +20,10 @@
       {{ form.submit() }}
   </form>
 </div>
-<button onclick="getLocation()">Try It</button>
+<p>**Contact 9434XXXXXX for any assistance**</p>
+<p>Click the button to get your coordinates.</p>
 
+<button onclick="getLocation()">Try It</button>
 
 <p id="demo"></p>
 
@@ -40,23 +42,8 @@ function showPosition(position) {
   x.innerHTML = "Latitude: " + position.coords.latitude +
   "<br>Longitude: " + position.coords.longitude;
 }
-function initMap() {
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: {lat: -33, lng: 151}
-  });
-
-  var image = 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png';
-  var beachMarker = new google.maps.Marker({
-    position: {lat: -33.890, lng: 151.274},
-    map: map,
-    icon: image
-  });
-}
 </script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBPmphlwoo7dSfR-l_nt-_lLXB9ZNuJjAM&callback=initMap">
-    </script>
+<!-- <a href="https://www.latlong.net/c/?lat=console.log(position.coords.latitude)&long=position.coords.longitude" target="_blank">(, 88.397751)</a> -->
 </body>
 </html>
 
