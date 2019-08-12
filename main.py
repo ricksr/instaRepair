@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 
 
 app= Flask(__name__, template_folder='templates')
-app.config['SECRET_KEY']='mysecretkey'
+app.config['SECRET_KEY']='XXXXXXXXXXXXXXXXXXX'
 ############################################
 
         # SQL DATABASE AND MODELS
@@ -56,7 +56,7 @@ def arm():
         return redirect(url_for('base'))
     return render_template('arm.html',form=form)
 
-GoogleMaps(app, key="AIzaSyBPmphlwoo7dSfR-l_nt-_lLXB9ZNuJjAM")
+GoogleMaps(app, key="API_KEY")
 @app.route('/map', methods=["GET"])
 def my_map():
     mymap = Map(
