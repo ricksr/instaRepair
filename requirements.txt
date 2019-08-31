@@ -35,5 +35,5 @@ Werkzeug==0.15.5
 WTForms==2.1
 Flask-GoogleMaps==0.2.6
 # requirements for Heroku
-psycopg2==2.7.3.1
+psycopg2==2.8.3
 gunicorn==19.9.0
